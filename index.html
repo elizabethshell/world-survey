@@ -8,26 +8,66 @@
     
             window.onload = function() {
                 var ds = new Miso.Dataset({
-                    importer : Miso.Dataset.Importers.GoogleSpreadsheet,
-                    parser : Miso.Dataset.Parsers.GoogleSpreadsheet,
-                    key : "0AtI8QbBh9HPIdFFFVEFwTHJ2VVU2X3pLTFFwXzFkNHc",
-                    worksheet: "1" 
-                   
+                    url : "world-survey.csv",
+                    delimiter : ",",
+                    /* do we need this columns portion? 
+                    columns : [{}] */  
                 });
-
-    
                 ds.fetch({
-                  success : function() {
-                      console.log(ds.columnNames());
-                  },
-                  error : function() {
-                      console.error(":(");
-                  }
-                }) 
-            };    
+                    success : function() {
+                    console.log("It works");    
+                    chart = new highcharts.Chart({
+                       chart: {
+                           renderTo: 'container',
+                           polar: true,
+                           type: 'area'
+                           
+                       }, 
+                       xAxis: {
+                           categories: ['Independence', 'Self Expression', 'Obedience', 'Unselfish', 'Faith', 'Determination', 'perseverance', 'Thrift', 'Tolerance', 'Responsibility', 'Hard Work', 'Imagination'],
+                           tickmarkPlacement: 'on',
+                           linewidth: 0
+                       },
+                       yAxis: {
+                           
+                           gridLineInterpolation: 'polygon',
+                           lineWidth: 2,
+                           min: 0
+                       },
+                       tooltip: {
+                           /* including now for data testing purposes */ 
+                            formatter: function() {
+                                return '<b>'+ this.series.name +'</b><br/>'+
+                                this.x +': '+ this.y;
+                            }    
+                       },
+                       legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'top'
+                       },
+                        /* need help here */
+                        series: [{
+                          name: '',
+                          data: this.column("").data
+                        }],
+                        series: [{
+                          name: '',
+                          data: this.column("").data
+                        }]
+                       
+                    });
+                    }                        
+                });
+            }
     </script>
-    
-    <div id="container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
-    <p>test- something's working</p>
+    <h3>Chose two countries to compare</h3>  
+    <div id="container" 
+        style=
+        "background-color: gray; 
+        min-width: 100%; 
+        height: 500px; 
+        margin: 0 auto">
+    </div>
 	</body>
 </html>
