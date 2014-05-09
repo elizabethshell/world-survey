@@ -6,56 +6,56 @@
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="js/miso.js"></script>
         <script type="text/javascript">
-            window.onload = function() {
-                 var ds = new Miso.Dataset({
-                 url : "data/data.csv",
-                 delimiter : ","
-                 /* do we need this columns portion? 
-                 columns : [{}] */  
-            });
-            var algeria = [31.2, 17.8, 47.9, 34.3, 64.7, 35.2, 31.2, 61.4, 56.3, 59.5, 23.4];  
-            ds.fetch({
-                success : function() {
-                console.log("It works!");    
-                    chart = new Highcharts.Chart({          
-                        chart: {
-                            polar: true,
-                            type: 'area'
-                        },
-                        //default data series to display on load
-                        //series: [{
-                        //    name: 'Algeria', 
-                        //    data: algeria
-                        //},{
-                        //    name: 'Belarus', 
-                        //    data: [5, 4, 3, 2, 1]
-                        }], 
-                        xAxis: {
-                            categories: ['Independence', 'Self Expression', 'Obedience', 'Unselfish', 'Faith', 'Determination', 'perseverance', 'Thrift', 'Tolerance', 'Responsibility', 'Hard Work', 'Imagination'],
-                            tickmarkPlacement: 'on',
-                            lineWidth: 0
-                        },    
-                        yAxis: {
-                            gridLineInterpolation: 'polygon',
-                            lineWidth: 2,
-                            min: 0
-                        },
-                        tooltip: {
-                            shared: true,
-                            pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
-                        },
-                        legend: {
-                            align: 'right',
-                            verticalAlign: 'bottom',
-                            layout: 'vertical'
-                        },
-                        series: [{
-                          name: '$("#list1 option:selected").text();',
-                          data: [1,5,9,11]
-                        }]
-                    });        
-                }    
-            });           
+            $(function () {
+                $('#container').highcharts({ 
+                window.onload = function() {
+                     var ds = new Miso.Dataset({
+                         url : "data/data.csv",
+                         delimiter : ","
+                         // do we need the columns portion? 
+                         columns : [{}] */  
+                    });
+                    var algeria = [31.2, 17.8, 47.9, 34.3, 64.7, 35.2, 31.2, 61.4, 56.3, 59.5, 23.4]; 
+                    ds.fetch({
+                        success : function() {q
+                            console.log("It works!");    
+                                chart = new Highcharts.Chart({          
+                                    chart: {
+                                        polar: true,
+                                        type: 'area'
+                                    },
+                                    // default data series to display on load -- tk later
+                                   
+                                    xAxis: {
+                                        categories: ['Independence', 'Self Expression', 'Obedience', 'Unselfish', 'Faith', 'Determination', 'perseverance', 'Thrift', 'Tolerance', 'Responsibility', 'Hard Work', 'Imagination'],
+                                        tickmarkPlacement: 'on',
+                                        lineWidth: 0
+                                    },    
+                                    yAxis: {
+                                        gridLineInterpolation: 'polygon',
+                                        lineWidth: 2,
+                                        min: 0
+                                    },
+                                    tooltip: {
+                                        shared: true,
+                                        pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
+                                    },
+                                    legend: {
+                                        align: 'right',
+                                        verticalAlign: 'bottom',
+                                        layout: 'vertical'
+                                    },
+                                    series: [{
+                                        name: 'Algeria',
+                                        color: 'red',
+                                        data: algeria,
+                                        pointPlacement: 'off'
+                                    }
+                                });        
+                        }
+                    });
+                }
+                });
             }
         </script>
   </head>
