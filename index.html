@@ -1,0 +1,33 @@
+<html>
+	<body>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/highcharts-more.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+        <script type="text/javascript" src="miso.js"></script>
+        <script type="text/javascript">
+    
+            window.onload = function() {
+                var ds = new Miso.Dataset({
+                    importer : Miso.Dataset.Importers.GoogleSpreadsheet,
+                    parser : Miso.Dataset.Parsers.GoogleSpreadsheet,
+                    key : "0AtI8QbBh9HPIdFFFVEFwTHJ2VVU2X3pLTFFwXzFkNHc",
+                    worksheet: "1" 
+                   
+                });
+
+    
+                ds.fetch({
+                  success : function() {
+                      console.log(ds.columnNames());
+                  },
+                  error : function() {
+                      console.error(":(");
+                  }
+                }) 
+            };    
+    </script>
+    
+    <div id="container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+    <p>test- something's working</p>
+	</body>
+</html>
