@@ -4,7 +4,35 @@
         <script src="http://code.highcharts.com/highcharts.js"></script>
         <script src="http://code.highcharts.com/highcharts-more.js"></script>
         <script src="http://code.highcharts.com/modules/exporting.js"></script>
+        <script type="text/javascript" src="js/miso.js"></script>
         <script type="text/javascript">
+       
+       /*
+             window.onload = function() {
+                var ds = new Miso.Dataset({
+                    url: 'data/data.csv',
+                    delimiter: ','    
+                });
+                ds.fetch({
+                  success : function() {
+                      console.log(ds.columnNames());
+                      chart = new Highcharts.Chart({
+                            chart: {
+                                renderTo: 'container',
+                                polar: true,
+                                type: 'line'
+                            },
+                            // PUT REST OF CHART STRUCTURE HERE
+
+                            
+                      }); // closing Highcharts.chart
+                  } // closing succes function   
+            } // closing window.onload function 
+
+            
+        */
+
+var algeria = [31.2, 17.8, 47.9, 34.3, 64.7, 35.2, 31.2, 61.4, 56.3, 59.5, 23.4];
         $(function () {
         $('#container').highcharts({
             chart: {
@@ -29,24 +57,23 @@
                 pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
             },
             legend: {
-                align: 'right',
-                verticalAlign: 'bottom',
+                align: 'top',
+                verticalAlign: 'top',
 
                 layout: 'vertical'
             },
+            credits: {
+                text: "Data: World Values Survey"
+            },
             series: [{
-                name: 'Algeria',
-                color: 'red',
-                data: [31.2, 17.8, 47.9, 34.3, 64.7, 35.2, 31.2, 61.4, 56.3, 59.5, 23.4],
-                pointPlacement: 'off'
-            }, {
-                name: 'China',
-                data: [69.7, 10.5, 7.5, 29.2, 1.2, 26.0, 50.7, 52.2, 65.9, 75.3, 17],
-                pointPlacement: 'off'
-            }, {
-                name: 'x',
-                data: [50.7, 18.5, 17.5, 2.2, 91.2, 25.0, 51.7, 23.2, 65.9, 75.3, 17],
-                pointPlacement: 'off'
+                    name: 'Algeria',
+                    color: 'red',
+                    data: algeria,
+                    pointPlacement: 'off'
+                }, {
+                    name: 'China',
+                    data: [69.7, 10.5, 7.5, 29.2, 1.2, 26.0, 50.7, 52.2, 65.9, 75.3, 17],
+                    pointPlacement: 'off'
             }]
 
         });
@@ -55,10 +82,118 @@
     </head>
     <body>  
         <h3>Choose two countries to compare</h3>  
+        <select id="list1">
+            <option>Algeria</option>
+            <option>Armenia</option>
+            <option>Australia</option>
+            <option>Azerbaijan</option>
+            <option>Belarus</option>
+            <option>Chile</option>
+            <option>China</option>
+            <option>Colombia</option>
+            <option>Cyprus</option>
+            <option>Ecuador</option>
+            <option>Egypt</option>
+            <option>Estonia</option>
+            <option>Germany</option>
+            <option>Ghana</option>
+            <option>Iraq</option>
+            <option>Japan</option>
+            <option>Jordan</option>
+            <option>Kazakhstan</option>
+            <option>Kuwait</option>
+            <option>Kyrgyzstan</option>
+            <option>Lebanon</option>
+            <option>Libya</option>
+            <option>Malaysia</option>
+            <option>Mexico</option>
+            <option>Morocco</option>
+            <option>Netherlands</option>
+            <option>New Zealand</option>
+            <option>Nigeria</option>
+            <option>Pakistan</option>
+            <option>Palestine</option>
+            <option>Peru</option>
+            <option>Philippines</option>
+            <option>Poland</option>
+            <option>Qatar</option>
+            <option>Romania</option>
+            <option>Russia</option>
+            <option>Rwanda</option>
+            <option>Singapore</option>
+            <option>Slovenia</option>
+            <option>South Korea</option>
+            <option>Spain</option>
+            <option>Sweden</option>
+            <option>Taiwan</option>
+            <option>Trinidad and Tobago</option>
+            <option>Tunisia</option>
+            <option>Turkey</option>
+            <option>Ukraine</option>
+            <option>United States</option>
+            <option>Uruguay</option>
+            <option>Uzbekistan</option>
+            <option>Yemen</option>
+            <option>Zimbabwe</option>
+        </select>    
+        <select id="list2">
+            <option>Algeria</option>
+            <option>Armenia</option>
+            <option>Australia</option>
+            <option>Azerbaijan</option>
+            <option>Belarus</option>
+            <option>Chile</option>
+            <option>China</option>
+            <option>Colombia</option>
+            <option>Cyprus</option>
+            <option>Ecuador</option>
+            <option>Egypt</option>
+            <option>Estonia</option>
+            <option>Germany</option>
+            <option>Ghana</option>
+            <option>Iraq</option>
+            <option>Japan</option>
+            <option>Jordan</option>
+            <option>Kazakhstan</option>
+            <option>Kuwait</option>
+            <option>Kyrgyzstan</option>
+            <option>Lebanon</option>
+            <option>Libya</option>
+            <option>Malaysia</option>
+            <option>Mexico</option>
+            <option>Morocco</option>
+            <option>Netherlands</option>
+            <option>New Zealand</option>
+            <option>Nigeria</option>
+            <option>Pakistan</option>
+            <option>Palestine</option>
+            <option>Peru</option>
+            <option>Philippines</option>
+            <option>Poland</option>
+            <option>Qatar</option>
+            <option>Romania</option>
+            <option>Russia</option>
+            <option>Rwanda</option>
+            <option>Singapore</option>
+            <option>Slovenia</option>
+            <option>South Korea</option>
+            <option>Spain</option>
+            <option>Sweden</option>
+            <option>Taiwan</option>
+            <option>Trinidad and Tobago</option>
+            <option>Tunisia</option>
+            <option>Turkey</option>
+            <option>Ukraine</option>
+            <option>United States</option>
+            <option>Uruguay</option>
+            <option>Uzbekistan</option>
+            <option>Yemen</option>
+            <option>Zimbabwe</option>
+        </select>    
+        <button id="change" style="font-size: 13px">Compare</button>
         <div id="container" 
             style=
-            "background-color: gray; 
-            min-width: 100%; 
+            "min-width: 100%; 
             height: 500px; 
             margin: 0 auto">
         </div>
