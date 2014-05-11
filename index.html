@@ -1,88 +1,80 @@
 <html>
 	<head>
-	<script src="js/jquery-1.9.1.min.js"></script>
-        <script src="http://code.highcharts.com/highcharts.js"></script>
-        <script src="http://code.highcharts.com/highcharts-more.js"></script>
-        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/highcharts.js"></script>
+		<script type="text/javascript" src="http://code.highcharts.com/highcharts-more.js"></script>
         <script type="text/javascript" src="js/miso.js"></script>
+		<script type="text/javascript" src="js/miso.helper.js"></script>
         <script type="text/javascript">
-       
-       /*
-             window.onload = function() {
-                var ds = new Miso.Dataset({
-                    url: 'data/data.csv',
-                    delimiter: ','    
-                });
-                ds.fetch({
-                  success : function() {
-                      console.log(ds.columnNames());
-                      chart = new Highcharts.Chart({
-                            chart: {
-                                renderTo: 'container',
-                                polar: true,
-                                type: 'line'
-                            },
-                            // PUT REST OF CHART STRUCTURE HERE
 
-                            
-                      }); // closing Highcharts.chart
-                  } // closing succes function   
-            } // closing window.onload function 
+		function submitList() {
 
-            
-        */
+			var first_selection = $("#list1 option:selected").text();
+			var second_selection = $("#list2 option:selected").text();
 
-var algeria = [31.2, 17.8, 47.9, 34.3, 64.7, 35.2, 31.2, 61.4, 56.3, 59.5, 23.4];
-        $(function () {
-        $('#container').highcharts({
-            chart: {
-                polar: true,
-                type: 'line'
-            },
-            title: {
-                text: '',
-            },
-            xAxis: {
-                categories: ['Independence', 'Self Expression', 'Obedience', 'Unselfish', 'Faith', 'Determination', 'perseverance', 'Thrift', 'Tolerance', 'Responsibility', 'Hard Work', 'Imagination'],
-                tickmarkPlacement: 'on',
-                lineWidth: 0
-            },
-            yAxis: {
-                gridLineInterpolation: 'polygon',
-                lineWidth: 2,
-                min: 0
-            },
-            tooltip: {
-                shared: true,
-                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
-            },
-            legend: {
-                align: 'top',
-                verticalAlign: 'top',
+			if (first_selection === "--" || second_selection === "--") {
+				alert("Please select two countries from the lists");
+			} else {
 
-                layout: 'vertical'
-            },
-            credits: {
-                text: "Data: World Values Survey"
-            },
-            series: [{
-                    name: 'Algeria',
-                    color: 'red',
-                    data: algeria,
-                    pointPlacement: 'off'
-                }, {
-                    name: 'China',
-                    data: [69.7, 10.5, 7.5, 29.2, 1.2, 26.0, 50.7, 52.2, 65.9, 75.3, 17],
-                    pointPlacement: 'off'
-            }]
+			}
 
-        });
-        });
+		}
+
+
+
+		function drawChart(series) {
+
+
+			var algeria = [31.2, 17.8, 47.9, 34.3, 64.7, 35.2, 31.2, 61.4, 56.3, 59.5, 23.4];
+
+		    $('#container').highcharts({
+		        chart: {
+		            polar: true,
+		            type: 'line'
+		        },
+		        title: {
+		            text: '',
+		        },
+		        xAxis: {
+		            categories: ['Independence', 'Self Expression', 'Obedience', 'Unselfish', 'Faith', 'Determination', 'perseverance', 'Thrift', 'Tolerance', 'Responsibility', 'Hard Work', 'Imagination'],
+		            tickmarkPlacement: 'on',
+		            lineWidth: 0
+		        },
+		        yAxis: {
+		            gridLineInterpolation: 'polygon',
+		            lineWidth: 2,
+		            min: 0
+		        },
+		        tooltip: {
+		            shared: true,
+		            pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b></br>'
+		        },
+		        legend: {
+		            align: 'top',
+		            verticalAlign: 'top',
+		            layout: 'vertical'
+		        },
+		        credits: {
+		            text: "Data: World Values Survey"
+		        },
+		        series: [{
+		                name: 'Algeria',
+		                color: 'red',
+		                data: algeria,
+		                pointPlacement: 'off'
+		            }, {
+		                name: 'China',
+		                data: [69.7, 10.5, 7.5, 29.2, 1.2, 26.0, 50.7, 52.2, 65.9, 75.3, 17],
+		                pointPlacement: 'off'
+		        }]
+		    });
+		}
         </script>
     </head>
     <body>  
         <h3>Choose two countries to compare</h3>  
         <select id="list1">
+			<option>--</option>
             <option>Algeria</option>
             <option>Armenia</option>
             <option>Australia</option>
@@ -137,6 +129,7 @@ var algeria = [31.2, 17.8, 47.9, 34.3, 64.7, 35.2, 31.2, 61.4, 56.3, 59.5, 23.4]
             <option>Zimbabwe</option>
         </select>    
         <select id="list2">
+			<option>--</option>
             <option>Algeria</option>
             <option>Armenia</option>
             <option>Australia</option>
@@ -190,7 +183,7 @@ var algeria = [31.2, 17.8, 47.9, 34.3, 64.7, 35.2, 31.2, 61.4, 56.3, 59.5, 23.4]
             <option>Yemen</option>
             <option>Zimbabwe</option>
         </select>    
-        <button id="change" style="font-size: 13px">Compare</button>
+        <button onclick="submitList()" style="font-size: 13px">Compare</button>
         <div id="container" 
             style=
             "min-width: 100%; 
