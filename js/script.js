@@ -14,7 +14,7 @@ window.onload = function() {
 
 			chart.drawChart(d);
 
-		}
+		};
 
 		var chart = {
 
@@ -95,10 +95,10 @@ window.onload = function() {
 				        text: '',
 				    },
 				    xAxis: {
-				        categories: ['Independence', 'Self-Expression', 'Obedience', 'Unselfishness', 'Religious Faith', 'Determination, Perseverance', 'Thrift', 'Tolerance and Respect for Others', 'Responsibility', 'Hard Work', 'Imagination'],
-                        lables: {
+				        categories: ['Independence', 'Self-Expression', 'Obedience', 'Unselfishness', 'Religious Faith', 'Determination, Perseverance', 'Thrift', 'Tolerance', 'Responsibility', 'Hard Work', 'Imagination'],
+                        labels: {
                             style: {
-                                fontSize: '18px',
+                                fontSize: '13px',
                                 fontFamily: '"Source Sans Pro", sans serif'
                             },
                         },
