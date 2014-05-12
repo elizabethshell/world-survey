@@ -132,7 +132,8 @@ window.onload = function() {
 				    },
 				    credits: {
                         position: {
-                            align: 'right'
+                            align: 'left',
+                            x: 10
                         },
                         style: {
                             fontSize: '14px'
