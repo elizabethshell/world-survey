@@ -77,6 +77,11 @@ window.onload = function() {
 
 			drawChart: function(data) {
 				console.log(data);
+                Highcharts.setOptions({
+                    colors: ['#007172', '#421679'],
+                    fontSize: '20px'
+                });
+                
 				$("#radar-container").highcharts({
 				    chart: {
 				        style: {
