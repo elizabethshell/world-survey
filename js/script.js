@@ -67,6 +67,7 @@ window.onload = function() {
 						var country = chart.master_data[i].name;
 						if ( country == first_selection || country == second_selection ) {
 							args.push(chart.master_data[i]);
+
 						}
 					}
 
@@ -76,7 +77,10 @@ window.onload = function() {
 			},
 
 			drawChart: function(data) {
-				console.log(data);
+
+				data[0].color = "#007172";
+				data[1].color = "#421679";
+
                 Highcharts.setOptions({
                     colors: ['#007172', '#421679'],
                     fontSize: '20px'
