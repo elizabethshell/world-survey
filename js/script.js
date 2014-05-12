@@ -108,6 +108,7 @@ window.onload = function() {
 				    yAxis: {
 				        gridLineInterpolation: 'polygon',
 				        lineWidth: 2,
+                        padding: 10,
 				        min: 0
 				    },
 				    tooltip: {
@@ -127,8 +128,7 @@ window.onload = function() {
 				    },
 				    credits: {
                         position: {
-                            align: 'left',
-                            x: '10px'
+                            align: 'right'
                         },
                         style: {
                             fontSize: '14px'
