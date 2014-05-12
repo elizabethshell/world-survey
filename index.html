@@ -12,11 +12,11 @@
 			var d = [
 			{
 				name: "United States",
-				data: [],
+				data: [53.6, 17.6, 27.9, 32.7, 43.1, 35.7, 31.6, 71.8, 65.2, 66.4, 30.5],
 				pointPlacement: 'off'
 			}, {
 				name: "Ukraine",
-				data: [],
+				data: [42.8, 32.3, 42.3, 19.9, 22.3, 39.4, 45.1, 59.0, 75.5, 85.8, 13.0],
 				pointPlacement: 'off'
 			}];
 
@@ -51,7 +51,7 @@
 								}
 							}
 							highcharts_series_object.push({
-								type: "line",
+								type: "area",
 								name: country_name,
 								data: category_data_points
 							});
@@ -118,7 +118,7 @@
                         style: {
                             fontSize: '14px'
                         },
-                        pointFormat: '<b>{series.name}: </b>{point.y}<br>'
+                        pointFormat: '<b>{series.name}: </b>{point.y}%<br>'
 				        //pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b></br><br>'
 				    },
 				    legend: {
@@ -130,10 +130,15 @@
 				        layout: 'vertical'
 				    },
 				    credits: {
+                        position: {
+                            align: 'left',
+                            x: '10px'
+                        },
                         style: {
                             fontSize: '14px'
                         },
-				        text: '<strong>Data:</strong><a href="http://www.worldvaluessurvey.org/wvs.jsp"> World Values Survey</a>'
+				        text: '<strong>Data:</strong> World Values Survey',
+                        href: 'http://www.worldvaluessurvey.org/wvs.jsp'
 				    },
 
 				    series: data
@@ -146,10 +151,20 @@
         </script>
     </head>
     <body>  
-        <p style=
+        <p id="headline" style=
             "font-family:Source Sans Pro;
-             font-weight:600;               
-             font-size:40px">Choose two countries to compare</p>  
+             font-weight:600;
+             line-height: 140%;
+             margin: 0;               
+             font-size:40px">Choose two countries to compare
+        </p>  
+        <p id="blurb" style=
+            "font-family:Source Sans Pro;
+             font-weight:400;
+             margin: 0;
+             font-size:16px"><em>Area shows percent of people in that country who named that value.</em>
+         </p>
+             
         <select id="list1">
 			<option>--</option>
             <option>Algeria</option>
