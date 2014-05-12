@@ -8,6 +8,20 @@
 
 		window.onload = function() {
 			chart.loadData();
+
+			var d = [
+			{
+				name: "United States",
+				data: [],
+				pointPlacement: 'off'
+			}, {
+				name: "Ukraine",
+				data: [],
+				pointPlacement: 'off'
+			}];
+
+			chart.drawChart(d);
+
 		}
 
 		var chart = {
@@ -37,7 +51,7 @@
 								}
 							}
 							highcharts_series_object.push({
-								type: "area",
+								type: "line",
 								name: country_name,
 								data: category_data_points
 							});
@@ -70,7 +84,7 @@
 			},
 
 			drawChart: function(data) {
-
+				console.log(data);
 				$("#container").highcharts({
 				    chart: {
 				        style: {
@@ -121,7 +135,7 @@
                         },
 				        text: '<strong>Data:</strong><a href="http://www.worldvaluessurvey.org/wvs.jsp"> World Values Survey</a>'
 				    },
-                    // series: [country_name['Peru'], country_data['Peru']], 
+
 				    series: data
 				});
 
