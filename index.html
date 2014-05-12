@@ -37,7 +37,7 @@
 								}
 							}
 							highcharts_series_object.push({
-								type: "line",
+								type: "area",
 								name: country_name,
 								data: category_data_points
 							});
@@ -73,14 +73,24 @@
 
 				$("#container").highcharts({
 				    chart: {
-				        polar: true,
-				        type: 'line'
+				        style: {
+                            fontFamily: '"Source Sans Pro", Ariel',
+                            fontSize: '16px'
+                        },
+                        polar: true,
+				        type: 'area'
 				    },
 				    title: {
 				        text: '',
 				    },
 				    xAxis: {
-				        categories: ['Independence', 'Self Expression', 'Obedience', 'Unselfish', 'Faith', 'Determination', 'perseverance', 'Thrift', 'Tolerance', 'Responsibility', 'Hard Work', 'Imagination'],
+				        categories: ['Independence', 'Self-Expression', 'Obedience', 'Unselfishness', 'Religious Faith', 'Determination, Perseverance', 'Thrift', 'Tolerance and Respect for Others', 'Responsibility', 'Hard Work', 'Imagination'],
+                        lables: {
+                            style: {
+                                fontSize: '18px',
+                                fontFamily: '"Source Sans Pro", sans serif'
+                            },
+                        },
 				        tickmarkPlacement: 'on',
 				        lineWidth: 0
 				    },
@@ -91,16 +101,27 @@
 				    },
 				    tooltip: {
 				        shared: true,
-				        pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b></br>'
+                        style: {
+                            fontSize: '14px'
+                        },
+                        pointFormat: '<b>{series.name}: </b>{point.y}<br>'
+				        //pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b></br><br>'
 				    },
 				    legend: {
+                        style: {
+                            fontSize: '20px'
+                        },
 				        align: 'top',
 				        verticalAlign: 'top',
 				        layout: 'vertical'
 				    },
 				    credits: {
-				        text: "Data: World Values Survey"
+                        style: {
+                            fontSize: '14px'
+                        },
+				        text: '<strong>Data:</strong><a href="http://www.worldvaluessurvey.org/wvs.jsp"> World Values Survey</a>'
 				    },
+                    // series: [country_name['Peru'], country_data['Peru']], 
 				    series: data
 				});
 
@@ -111,7 +132,10 @@
         </script>
     </head>
     <body>  
-        <h3>Choose two countries to compare</h3>  
+        <p style=
+            "font-family:Source Sans Pro;
+             font-weight:600;               
+             font-size:40px">Choose two countries to compare</p>  
         <select id="list1">
 			<option>--</option>
             <option>Algeria</option>
