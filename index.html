@@ -141,10 +141,11 @@
             margin: 0 auto">
         </div>
 
-        <!--NPR example puts scripts here. Not sure how to handle child.html-->
         
-        <script type="text/javascript" src="js/pym.js/src/pym.js"></script>
-        <script>var pymParent = pym.Parent('radar-container', 'child.html', {});</script>
+<script src="js/pym.js/src/pym.js" type="text/javascript"></script>
+<script>
+    var pymChild = new pym.Child();
+</script>
 
     </body>
 </html>
