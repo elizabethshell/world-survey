@@ -99,7 +99,7 @@ window.onload = function() {
 				        text: '',
 				    },
 				    xAxis: {
-				        categories: ['Determination, Perseverance', 'Responsibility', 'Imagination ', 'Self-Expression', 'Independence', 'Tolerance', 'Unselfishness', 'Thrift', 'Religious Faith', 'Obedience'],
+				        categories: ['Determination, Perseverance', 'Responsibility', 'Imagination ', 'Self-Expression', 'Independence', 'Tolerance', 'Unselfishness', 'Thrift', 'Religious Faith', 'Obedience','Hard Work'],
                         labels: {
                             style: {
                                 fontSize: '13px',
